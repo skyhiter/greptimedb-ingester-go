@@ -18,9 +18,11 @@ package bulk
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"sync"
 
 	gpbv1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
@@ -30,6 +32,13 @@ import (
 
 	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
 )
+
+// doPutResponse mirrors the server-side DoPutResponse (JSON-encoded in PutResult.AppMetadata).
+type doPutResponse struct {
+	RequestID    int64   `json:"request_id"`
+	AffectedRows uint32  `json:"affected_rows"`
+	ElapsedSecs  float64 `json:"elapsed_secs"`
+}
 
 // BulkClient is a client for performing bulk operations with GreptimeDB.
 type BulkClient struct {
@@ -45,30 +54,77 @@ func NewBulkClient(conn *grpc.ClientConn) *BulkClient {
 
 type BulkWriter interface {
 	Write(table *table.Table) error
-	Close() error
+	Close() (uint32, error)
 }
 
 type bulkWriter struct {
 	client *BulkClient
 	stream flight.FlightService_DoPutClient
 	writer *flight.Writer
+
+	recvDone chan struct{} // closed when the recv goroutine exits
+	mu       sync.RWMutex
+	recvErr  error  // first non-EOF error from recv goroutine
+	rows     uint32 // total affected rows reported by server
 }
 
 // NewBulkWriter creates a new BulkWriter instance for streaming data to GreptimeDB.
+// Callers must call Close when done to release resources and stop the background goroutine.
 func (c *BulkClient) NewBulkWriter(ctx context.Context) (BulkWriter, error) {
 	stream, err := c.client.DoPut(ctx)
 	if err != nil {
 		return nil, err
 	}
 
-	return &bulkWriter{
-		client: c,
-		stream: stream,
-	}, nil
+	bw := &bulkWriter{
+		client:   c,
+		stream:   stream,
+		recvDone: make(chan struct{}),
+	}
+	go bw.recvLoop()
+	return bw, nil
+}
+
+// recvLoop drains all PutResult messages from the server in the background,
+// accumulating affected rows and capturing the first error.
+func (bw *bulkWriter) recvLoop() {
+	defer close(bw.recvDone)
+	for {
+		resp, err := bw.stream.Recv()
+		if err != nil {
+			if !errors.Is(err, io.EOF) {
+				bw.mu.Lock()
+				bw.recvErr = err
+				bw.mu.Unlock()
+			}
+			return
+		}
+		if resp != nil && len(resp.AppMetadata) > 0 {
+			var putResp doPutResponse
+			if unmarshalErr := json.Unmarshal(resp.AppMetadata, &putResp); unmarshalErr != nil {
+				bw.mu.Lock()
+				if bw.recvErr == nil {
+					bw.recvErr = fmt.Errorf("failed to unmarshal PutResult.AppMetadata: %w", unmarshalErr)
+				}
+				bw.mu.Unlock()
+			} else {
+				bw.mu.Lock()
+				bw.rows += putResp.AffectedRows
+				bw.mu.Unlock()
+			}
+		}
+	}
 }
 
 // Write converts and sends a table of data to GreptimeDB in Arrow format.
 func (bw *bulkWriter) Write(tb *table.Table) error {
+	bw.mu.RLock()
+	err := bw.recvErr
+	bw.mu.RUnlock()
+	if err != nil {
+		return fmt.Errorf("stream already failed: %w", err)
+	}
+
 	converter := types.NewArrowConverter()
 	tableName, err := tb.GetName()
 	if err != nil {
@@ -96,7 +152,7 @@ func (bw *bulkWriter) Write(tb *table.Table) error {
 
 // Close finalizes the bulk write operation and cleans up resources.
 // This must be called after all writes are completed.
-func (bw *bulkWriter) Close() error {
+func (bw *bulkWriter) Close() (uint32, error) {
 	var errs []error
 
 	if bw.writer != nil {
@@ -105,15 +161,17 @@ func (bw *bulkWriter) Close() error {
 	}
 
 	if bw.stream != nil {
-		_, err := bw.stream.Recv()
-		if errors.Is(err, io.EOF) {
-			err = nil
+		errs = append(errs, bw.stream.CloseSend())
+		// Wait for recvLoop to drain all server responses (including the
+		// final result sent after the background write task completes).
+		<-bw.recvDone
+		if bw.recvErr != nil {
+			errs = append(errs, bw.recvErr)
 		}
-		errs = append(errs, err, bw.stream.CloseSend())
 		bw.stream = nil
 	}
 
-	return errors.Join(errs...)
+	return bw.rows, errors.Join(errs...)
 }
 
 // BulkWrite performs a single bulk write operation with the given table data.
@@ -124,17 +182,19 @@ func (c *BulkClient) BulkWrite(ctx context.Context, tb *table.Table) (*gpbv1.Gre
 	}
 
 	if err := bw.Write(tb); err != nil {
-		return nil, errors.Join(err, bw.Close())
+		_, closeErr := bw.Close()
+		return nil, errors.Join(err, closeErr)
 	}
 
-	if err := bw.Close(); err != nil {
+	rows, err := bw.Close()
+	if err != nil {
 		return nil, err
 	}
 
 	return &gpbv1.GreptimeResponse{
 		Response: &gpbv1.GreptimeResponse_AffectedRows{
 			AffectedRows: &gpbv1.AffectedRows{
-				Value: uint32(len(tb.GetRows().Rows)),
+				Value: rows,
 			},
 		},
 	}, nil
