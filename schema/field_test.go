@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/stretchr/testify/assert"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 func TestIsTimeType(t *testing.T) {

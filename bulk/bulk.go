@@ -24,10 +24,10 @@ import (
 	"io"
 	"sync"
 
-	gpbv1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
-	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 	"github.com/apache/arrow/go/v17/arrow/flight"
 	"github.com/apache/arrow/go/v17/arrow/ipc"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
+	gpbv1 "github.com/syhiter/greptime-proto/go/greptime/v1"
 	"google.golang.org/grpc"
 
 	"github.com/skyhiter/greptimedb-ingester-go/table"

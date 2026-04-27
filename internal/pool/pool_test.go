@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 

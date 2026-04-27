@@ -16,7 +16,7 @@ require (
 )
 
 require (
-	github.com/GreptimeTeam/greptime-proto v0.7.0 // indirect
+	github.com/syhiter/greptime-proto v0.7.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect

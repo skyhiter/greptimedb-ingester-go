@@ -3,16 +3,16 @@ module github.com/skyhiter/greptimedb-ingester-go
 go 1.26.0
 
 require (
-	github.com/GreptimeTeam/greptime-proto v0.15.0
-	github.com/go-logr/logr v1.4.2 // indirect
+	github.com/syhiter/greptime-proto v0.15.0
+	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/stoewer/go-strcase v1.3.0
-	github.com/stretchr/testify v1.10.0
-	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.59.0
-	go.opentelemetry.io/otel v1.34.0 // indirect
-	go.opentelemetry.io/otel/metric v1.34.0
-	go.opentelemetry.io/otel/trace v1.34.0
-	google.golang.org/grpc v1.72.3
+	github.com/stretchr/testify v1.11.1
+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.68.0
+	go.opentelemetry.io/otel v1.43.0 // indirect
+	go.opentelemetry.io/otel/metric v1.43.0
+	go.opentelemetry.io/otel/trace v1.43.0
+	google.golang.org/grpc v1.80.0
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gorm v1.25.12
 )
@@ -49,18 +49,19 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
-	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
-	golang.org/x/net v0.38.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250227231956-55c901821b1e // indirect
-	google.golang.org/protobuf v1.36.5 // indirect
+	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
+	golang.org/x/net v0.52.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
+	golang.org/x/text v0.35.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260406210006-6f92a3bedf2d // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
 require github.com/apache/arrow/go/v17 v17.0.0
 
 require (
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/goccy/go-json v0.10.3 // indirect
 	github.com/google/flatbuffers v24.3.25+incompatible // indirect
 	github.com/klauspost/compress v1.17.9 // indirect
@@ -68,8 +69,9 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.21 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225 // indirect
-	golang.org/x/mod v0.18.0 // indirect
-	golang.org/x/sync v0.12.0 // indirect
-	golang.org/x/tools v0.22.0 // indirect
+	golang.org/x/mod v0.33.0 // indirect
+	golang.org/x/sync v0.20.0 // indirect
+	golang.org/x/telemetry v0.0.0-20260209163413-e7419c687ee4 // indirect
+	golang.org/x/tools v0.42.0 // indirect
 	golang.org/x/xerrors v0.0.0-20231012003039-104605ab7028 // indirect
 )

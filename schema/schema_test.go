@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/skyhiter/greptimedb-ingester-go/table/cell"
 	"github.com/stretchr/testify/assert"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 func TestParseSchemaWithoutTags(t *testing.T) {

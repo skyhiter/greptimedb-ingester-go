@@ -19,7 +19,7 @@ package cell
 import (
 	"fmt"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 type Cell struct {

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 type TimestampPrecision string
@@ -55,7 +55,7 @@ type ColumnType int
 
 // DO NOT CHANGE THE ORDER OF THESE CONSTANTS
 // THEY WILL KEEP EXACTLY THE SAME ORDER WITH PROTOCOL BUFFER
-// https://github.com/GreptimeTeam/greptime-proto/blob/main/proto/greptime/v1/common.proto#L78-L110
+// https://github.com/syhiter/greptime-proto/blob/main/proto/greptime/v1/common.proto#L78-L110
 //
 // ColumnType has richer types than ColumnDataType in protocol buffer
 const (

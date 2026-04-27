@@ -23,7 +23,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
+	gpb "github.com/syhiter/greptime-proto/go/greptime/v1"
 
 	"github.com/skyhiter/greptimedb-ingester-go/internal/pool"
 	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"

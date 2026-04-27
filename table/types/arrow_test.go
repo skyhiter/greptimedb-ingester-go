@@ -20,11 +20,11 @@ import (
 	"testing"
 	"time"
 
-	gpbv1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/apache/arrow/go/v17/arrow"
 	"github.com/apache/arrow/go/v17/arrow/array"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	gpbv1 "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 // DATETIME is a deprecated alias for TIMESTAMP_MICROSECOND (greptimedb PR #5506).

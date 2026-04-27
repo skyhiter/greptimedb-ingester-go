@@ -20,10 +20,10 @@ import (
 	"errors"
 	"fmt"
 
-	gpbv1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/apache/arrow/go/v17/arrow"
 	"github.com/apache/arrow/go/v17/arrow/array"
 	"github.com/apache/arrow/go/v17/arrow/memory"
+	gpbv1 "github.com/syhiter/greptime-proto/go/greptime/v1"
 )
 
 // Timezone-less timestamp types. arrow-go's FixedWidthTypes.Timestamp_* default
