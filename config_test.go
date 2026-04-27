@@ -22,7 +22,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
+	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
 )
 
 func TestNewConfigNoArgs(t *testing.T) {

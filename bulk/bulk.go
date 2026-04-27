@@ -25,12 +25,12 @@ import (
 	"sync"
 
 	gpbv1 "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 	"github.com/apache/arrow/go/v17/arrow/flight"
 	"github.com/apache/arrow/go/v17/arrow/ipc"
 	"google.golang.org/grpc"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/table"
 )
 
 // doPutResponse mirrors the server-side DoPutResponse (JSON-encoded in PutResult.AppMetadata).

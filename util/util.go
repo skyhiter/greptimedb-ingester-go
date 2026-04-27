@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/errs"
+	"github.com/skyhiter/greptimedb-ingester-go/errs"
 	"github.com/stoewer/go-strcase"
 )
 

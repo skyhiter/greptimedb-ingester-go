@@ -1,6 +1,6 @@
-[![Build Status](https://github.com/greptimeteam/greptimedb-ingester-go/actions/workflows/ci.yaml/badge.svg)](https://github.com/GreptimeTeam/greptimedb-ingester-go/blob/main/.github/workflows/ci.yml)
+[![Build Status](https://github.com/skyhiter/greptimedb-ingester-go/actions/workflows/ci.yaml/badge.svg)](https://github.com/skyhiter/greptimedb-ingester-go/blob/main/.github/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/GreptimeTeam/greptimedb-ingester-go/branch/main/graph/badge.svg?token=76KIKITADQ)](https://codecov.io/gh/GreptimeTeam/greptimedb-ingester-go)
-[![Go Reference](https://pkg.go.dev/badge/github.com/GreptimeTeam/greptimedb-ingester-go.svg)](https://pkg.go.dev/github.com/GreptimeTeam/greptimedb-ingester-go)
+[![Go Reference](https://pkg.go.dev/badge/github.com/skyhiter/greptimedb-ingester-go.svg)](https://pkg.go.dev/github.com/skyhiter/greptimedb-ingester-go)
 
 # GreptimeDB Go Ingester
 
@@ -11,13 +11,13 @@ Provide API to insert data into GreptimeDB.
 ### Installation
 
 ```sh
-go get -u github.com/GreptimeTeam/greptimedb-ingester-go
+go get -u github.com/skyhiter/greptimedb-ingester-go
 ```
 
 ### Import
 
 ```go
-import greptime "github.com/GreptimeTeam/greptimedb-ingester-go"
+import greptime "github.com/skyhiter/greptimedb-ingester-go"
 ```
 
 ### Config
@@ -56,7 +56,7 @@ that endpoint fails mid-stream the Send returns the error and the next
 shared across all endpoints.
 
 ```go
-import "github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
+import "github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
 
 cfg := greptime.NewConfig().
     WithDatabase("<database>").
@@ -92,8 +92,8 @@ you can define schema via Table and Column, and then AddRow to include the real 
 
 ```go
 import(
-    "github.com/GreptimeTeam/greptimedb-ingester-go/table"
-    "github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+    "github.com/skyhiter/greptimedb-ingester-go/table"
+    "github.com/skyhiter/greptimedb-ingester-go/table/types"
 )
 
 tbl, err := table.New("<table_name>")

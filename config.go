@@ -26,8 +26,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/options"
+	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
+	"github.com/skyhiter/greptimedb-ingester-go/options"
 )
 
 // Config is to define how the Client behaves.

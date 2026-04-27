@@ -22,7 +22,7 @@ import (
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/errs"
+	"github.com/skyhiter/greptimedb-ingester-go/errs"
 )
 
 func TestHeaderBuild(t *testing.T) {

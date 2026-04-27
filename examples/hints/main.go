@@ -21,11 +21,11 @@ import (
 	"log"
 	"time"
 
-	greptime "github.com/GreptimeTeam/greptimedb-ingester-go"
+	greptime "github.com/skyhiter/greptimedb-ingester-go"
 
-	ingesterContext "github.com/GreptimeTeam/greptimedb-ingester-go/context"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+	ingesterContext "github.com/skyhiter/greptimedb-ingester-go/context"
+	"github.com/skyhiter/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 )
 
 const (

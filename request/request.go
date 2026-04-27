@@ -19,10 +19,10 @@ package request
 import (
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/errs"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/request/header"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+	"github.com/skyhiter/greptimedb-ingester-go/errs"
+	"github.com/skyhiter/greptimedb-ingester-go/request/header"
+	"github.com/skyhiter/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 )
 
 type Request struct {

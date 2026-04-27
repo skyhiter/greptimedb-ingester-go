@@ -34,9 +34,9 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
-	tbl "github.com/GreptimeTeam/greptimedb-ingester-go/table"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
+	tbl "github.com/skyhiter/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 )
 
 // TODO(yuanbohan):

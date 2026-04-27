@@ -3,7 +3,7 @@ module opentelemetry-example
 go 1.23.0
 
 require (
-	github.com/GreptimeTeam/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887
+	github.com/skyhiter/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887
 	github.com/prometheus/client_golang v1.20.4
 	go.opentelemetry.io/otel v1.30.0
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.30.0

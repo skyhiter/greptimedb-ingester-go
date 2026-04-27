@@ -25,8 +25,8 @@ import (
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 	"google.golang.org/grpc"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/bulk"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
+	"github.com/skyhiter/greptimedb-ingester-go/bulk"
+	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
 )
 
 // Endpoint bundles a gRPC connection with the stubs created from it. All

@@ -23,8 +23,8 @@ import (
 
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/util"
+	"github.com/skyhiter/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/util"
 )
 
 const (

@@ -1,4 +1,4 @@
-module github.com/GreptimeTeam/greptimedb-ingester-go
+module github.com/skyhiter/greptimedb-ingester-go
 
 go 1.26.0
 
@@ -12,7 +12,7 @@ require (
 	go.opentelemetry.io/otel v1.34.0 // indirect
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
-	google.golang.org/grpc v1.70.0
+	google.golang.org/grpc v1.72.3
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gorm v1.25.12
 )

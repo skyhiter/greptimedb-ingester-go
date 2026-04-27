@@ -19,8 +19,8 @@ package header
 import (
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/errs"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/util"
+	"github.com/skyhiter/greptimedb-ingester-go/errs"
+	"github.com/skyhiter/greptimedb-ingester-go/util"
 )
 
 type Header struct {

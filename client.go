@@ -25,13 +25,13 @@ import (
 
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/internal/pool"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/loadbalancer"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/request"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/request/header"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/schema"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
+	"github.com/skyhiter/greptimedb-ingester-go/internal/pool"
+	"github.com/skyhiter/greptimedb-ingester-go/loadbalancer"
+	"github.com/skyhiter/greptimedb-ingester-go/request"
+	"github.com/skyhiter/greptimedb-ingester-go/request/header"
+	"github.com/skyhiter/greptimedb-ingester-go/schema"
+	"github.com/skyhiter/greptimedb-ingester-go/table"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
 )
 
 // Client helps to write data into GreptimeDB. A Client is safe for concurrent

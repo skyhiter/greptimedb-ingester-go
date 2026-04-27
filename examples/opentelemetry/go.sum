@@ -5,8 +5,8 @@ github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 h1:w+iIsaOQNcT7O
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/GreptimeTeam/greptime-proto v0.7.0 h1:WHBjAu+NWDFcbZgW9kPtksxEKEAeqYemP1HY63QuO48=
 github.com/GreptimeTeam/greptime-proto v0.7.0/go.mod h1:jk5XBR9qIbSBiDF2Gix1KALyIMCVktcpx91AayOWxmE=
-github.com/GreptimeTeam/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887 h1:e7KbXTGuBjeaHOgOcmspFGz1bzCIZqKUA5npn92/HBA=
-github.com/GreptimeTeam/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887/go.mod h1:NHTUHidUQLEX8JhdVninZA2SD49AKDfokZkKIIwMKJM=
+github.com/skyhiter/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887 h1:e7KbXTGuBjeaHOgOcmspFGz1bzCIZqKUA5npn92/HBA=
+github.com/skyhiter/greptimedb-ingester-go v0.5.3-0.20240918162118-d3f1530a9887/go.mod h1:NHTUHidUQLEX8JhdVninZA2SD49AKDfokZkKIIwMKJM=
 github.com/Microsoft/go-winio v0.6.0 h1:slsWYD/zyx7lCXoZVlvQrj0hPTM1HI4+v1sIda2yDvg=
 github.com/Microsoft/go-winio v0.6.0/go.mod h1:cTAf44im0RAYeL23bpB+fzCyDH2MJiz2BO69KH/soAE=
 github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5 h1:TngWCqHvy9oXAN6lEVMRuU21PR1EtLVZJmdB18Gu3Rw=

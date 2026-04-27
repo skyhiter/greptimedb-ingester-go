@@ -24,9 +24,9 @@ import (
 
 	gpb "github.com/GreptimeTeam/greptime-proto/go/greptime/v1"
 
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/cell"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/table/types"
-	"github.com/GreptimeTeam/greptimedb-ingester-go/util"
+	"github.com/skyhiter/greptimedb-ingester-go/table/cell"
+	"github.com/skyhiter/greptimedb-ingester-go/table/types"
+	"github.com/skyhiter/greptimedb-ingester-go/util"
 )
 
 type Field struct {

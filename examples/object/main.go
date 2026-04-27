@@ -21,7 +21,7 @@ import (
 	"log"
 	"time"
 
-	greptime "github.com/GreptimeTeam/greptimedb-ingester-go"
+	greptime "github.com/skyhiter/greptimedb-ingester-go"
 )
 
 const (
